@@ -28,3 +28,4 @@ Route::get('/listJogador', function(){
 Route::get('/perfilJogador', function(){
     return view('perfilJogador');
 });
+
