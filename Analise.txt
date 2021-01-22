@@ -1,0 +1,89 @@
+Analise de Sistema
+
+
+
+    Equipa de Futebol
+
+    requesitos  uma equipa de futbol tem um 11 inicial  tem 22 jogares no maximo na Equipa A ,
+    tem emblema , um estadio , pertence a uma cidade (Pais , Provicia ) um equipamento principal e 1 ou 2 de reserva ,  tem uma data de fundação  um treinador  e trofeus ganhos.
+
+    Entidades
+
+        Jogadores
+        Descrição(Nome , Apelido, Bibliogafia , Filiação , Nacionalidade)
+        posição
+        o pe preferido ( canhoto ou destro , anbidestro )
+        a idade
+        a altura
+        o peso
+        Historico medico
+        historico profissional
+        golos
+        cartões  Amarelos / Vermelhos
+        Habilidades
+        Assistencia
+        Defesas
+        Equipas
+        video
+        imagens
+        Categoria
+
+
+
+        Treinador
+        Descrição(Nome , Apelido, Bibliogafia , Filiação , Nacionalidade)
+        tem uma idade
+        peso
+        altura
+        Anos de Carreira
+        Nivel
+        trofeus
+
+
+        11 inicial
+        Formação ( 4:4:2)
+        Defesas
+        Ataque
+        Defesas/Ataque
+        Ataque/Defesas
+        Movimentos Ofensivos
+        Movimentos Defensivos
+        suplentes
+        nº substituições
+
+        Emblema
+            Simbolo ( Bandeira , Logo Marca )
+
+            Estadio
+            Descrição( Nome , Localização )
+
+            Equipamento
+            Principal
+            Segundario(s)
+
+            Campeonatos Nacionais
+
+
+            Categoria
+            Equipa de serie Principal
+
+
+           Dados  Jogo / Jogadores
+            minutos
+            faltas
+            cartões
+            formação
+            remates
+            remates enquadrados
+            Foras de Jogo
+            estadio
+            posse de Bola
+            golos
+            Cantos
+            distancia percurrida
+            Velocidade Maxima
+
+
+
+
+    Funcionalidades | Operações
