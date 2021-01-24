@@ -133,13 +133,13 @@
                                 </li>
                                 <li class="sidebar-header">
                                     <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a></span>
-                                    <span class="sidebar-header-title">Design Kit</span>
+                                    <span class="sidebar-header-title">Equipa Tecnico</span>
                                 </li>
                                 <li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-certificate sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">User Interface</span></a>
+                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-certificate sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Clube</span></a>
                                     <ul>
                                         <li>
-                                            <a href="page_ui_grid_blocks.html">Grid &amp; Blocks</a>
+                                            <a href="/addTecnico">Novo Tecnico</a>
                                         </li>
                                         <li>
                                             <a href="page_ui_draggable_blocks.html">Draggable Blocks</a>
@@ -358,6 +358,8 @@
                             @yield('home')
                             @yield('listJogador')
                             @yield('perfilJogador')
+                            @yield('addClube')
+                            @yield('addTecnico')
                         <!-- Mini Top Stats Row -->
                         <!-- END Widgets Row -->
                     </div>
@@ -390,6 +392,8 @@
         <!-- For more info please have a look at https://developers.google.com/maps/documentation/javascript/get-api-key#key -->
 
         <script src="js/helpers/gmaps.min.js"></script>
+        <script src="js/pages/formsWizard.js"></script>
+        <script>$(function(){ FormsWizard.init(); });</script>
 
         <!-- Load and execute javascript code used only in this page -->
         <script src="js/pages/tablesDatatables.js"></script>

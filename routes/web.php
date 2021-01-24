@@ -18,14 +18,21 @@ Route::get('/', function () {
 });
 
 Route::get('home', function(){
-    return view('home',[]);
+    return view('gestor/home',[]);
 });
 
 Route::get('/listJogador', function(){
-    return view('listJogador');
+    return view('gestor/listJogador');
 });
 
 Route::get('/perfilJogador', function(){
-    return view('perfilJogador');
+    return view('gestor/perfilJogador');
 });
 
+Route::get('/addClube',function(){
+    return view('gestor/addClube');
+});
+
+Route::get('/addTecnico',function(){
+    return view('gestor/addTecnico');
+});
