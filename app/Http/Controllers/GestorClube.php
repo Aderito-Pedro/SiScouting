@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class GestorClube extends Controller
 {
     public function home(){
-
         return view('gestor/home');
     }
 }

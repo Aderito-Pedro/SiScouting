@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Siscouting;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::get('/', [Siscouting::class,'login']);
 
 Route::get('home', function(){
     return view('gestor/home',[]);
@@ -36,3 +35,7 @@ Route::get('/addClube',function(){
 Route::get('/addTecnico',function(){
     return view('gestor/addTecnico');
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
