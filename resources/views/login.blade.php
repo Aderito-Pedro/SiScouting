@@ -128,18 +128,18 @@
                         <div class="col-xs-6">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="gi gi-user"></i></span>
-                                <input type="text" id="register-firstname" name="register-firstname" class="form-control input-lg" placeholder="Firstname">
+                                <input type="text" id="register-firstname" name="nome" class="form-control input-lg" placeholder="Nome">
                             </div>
                         </div>
                         <div class="col-xs-6">
-                            <input type="text" id="register-lastname" name="register-lastname" class="form-control input-lg" placeholder="Lastname">
+                            <input type="text" id="register-lastname" name="sobnome" class="form-control input-lg" placeholder="Sobre Nome">
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
-                                <input type="text" id="register-email" name="register-email" class="form-control input-lg" placeholder="Email">
+                                <input type="text" id="register-email" name="email" class="form-control input-lg" placeholder="Email">
                             </div>
                         </div>
                     </div>
@@ -147,7 +147,7 @@
                         <div class="col-xs-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
-                                <input type="password" id="register-password" name="register-password" class="form-control input-lg" placeholder="Password">
+                                <input type="password" id="register-password" name="register-password" class="form-control input-lg" placeholder="Senha">
                             </div>
                         </div>
                     </div>
@@ -155,8 +155,18 @@
                         <div class="col-xs-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
-                                <input type="password" id="register-password-verify" name="register-password-verify" class="form-control input-lg" placeholder="Verify Password">
+                                <input type="password" id="register-password-verify" name="register-password-verify" class="form-control input-lg" placeholder="Confirme a Senha">
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="val_skill">Tipo <span class="text-danger">*</span></label>
+                        <div class="col-md-6">
+                            <select id="val_skill" name="val_skill" class="form-control">
+                                <option value="Gestor">Gestor de Clube</option>
+                                <option value="Comissario">Comissário do jogo</option>
+
+                            </select>
                         </div>
                     </div>
                     <div class="form-group form-actions">
