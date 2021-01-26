@@ -123,7 +123,8 @@
                 <!-- END Reminder Form -->
 
                 <!-- Register Form -->
-                <form action="login.html#register" method="post" id="form-register" class="form-horizontal form-bordered form-control-borderless display-none">
+                <form action="/addUser" method="post" id="form-register" class="form-horizontal form-bordered form-control-borderless display-none">
+                    @csrf
                     <div class="form-group">
                         <div class="col-xs-6">
                             <div class="input-group">
@@ -147,7 +148,7 @@
                         <div class="col-xs-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
-                                <input type="password" id="register-password" name="register-password" class="form-control input-lg" placeholder="Senha">
+                                <input type="password" id="register-password" name="password" class="form-control input-lg" placeholder="Senha">
                             </div>
                         </div>
                     </div>
@@ -162,7 +163,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="val_skill">Tipo <span class="text-danger">*</span></label>
                         <div class="col-md-6">
-                            <select id="val_skill" name="val_skill" class="form-control">
+                            <select id="val_skill" name="tipo" class="form-control">
                                 <option value="Gestor">Gestor de Clube</option>
                                 <option value="Comissario">Comissário do jogo</option>
 

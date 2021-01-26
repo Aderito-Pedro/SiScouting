@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Siscouting;
+use App\Http\Controllers\GestorClube;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,13 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [Siscouting::class,'login']);
 
-Route::get('home', function(){
-    return view('gestor/home',[]);
-});
+Route::get('home',[GestorClube::class,'home']);
 
 Route::get('/listJogador', function(){
     return view('gestor/listJogador');
 });
+
+Route::post('/addUser',[Siscouting::class,'store']);
 
 Route::get('/perfilJogador', function(){
     return view('gestor/perfilJogador');

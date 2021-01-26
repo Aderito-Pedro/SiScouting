@@ -27,6 +27,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'tipo'
     ];
 
     /**
@@ -59,3 +60,6 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 }
+
+
+  
