@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Siscouting;
 use App\Http\Controllers\GestorClube;
+use App\Http\Controllers\Jogador;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,27 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [Siscouting::class,'login']);
-
-Route::get('home',[GestorClube::class,'home']);
-
-Route::get('/listJogador', function(){
-    return view('gestor/listJogador');
-});
-
 Route::post('/addUser',[Siscouting::class,'store']);
+Route::get('/dashboard', [Siscouting::class,'home'])->middleware('auth');
+Route::get('/logout',[Siscouting::class,'logout']);
 
-Route::get('/perfilJogador', function(){
-    return view('gestor/perfilJogador');
-});
+Route::get('/addClube',[GestorClube::class,'addClube'])->middleware('auth');;
+Route::get('/addTecnico',[GestorClube::class, 'addTecnico'])->middleware('auth');;
 
-Route::get('/addClube',function(){
-    return view('gestor/addClube');
-});
+Route::get('/listJogador', [Jogador::class,'listjogador'])->middleware('auth');;
+Route::get('/perfilJogador', [Jogador::class, 'perfilJogador'])->middleware('auth');;
 
-Route::get('/addTecnico',function(){
-    return view('gestor/addTecnico');
-});
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -9,6 +11,12 @@ class Siscouting extends Controller
 {
     public function login(){
         return view('login');
+    }
+
+    public function logout(){
+        Auth::logout();
+        Session::flush();
+        return redirect('/login');
     }
 
     public function store(Request $request){
@@ -28,7 +36,16 @@ class Siscouting extends Controller
             $user->img = $imageName;
         }*/
         $user->save();
+        $use = auth()->user();
+        return redirect('/home',['user'=>$use]);
+    }
+    public function home(){
+        $user = auth()->user();
+        if($user->tipo == "Gestor"){
+            return view('gestor/home',['user'=>$user]);
+        }elseif($user->tipo == "Comissario"){
 
-        return redirect('/home');
+            echo "AINDA NÃO EXISTE DASHBOARD";
+        }
     }
 }

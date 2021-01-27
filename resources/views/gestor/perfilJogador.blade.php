@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
-@section('perfilJogador')
+@section('admin', $user->name)
+@section('conteudo')
 <div class="content-header">
 <div class="header-section">
             <h1>

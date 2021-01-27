@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
-@section('addClube')
+@section('admin', $user->name)
+@section('conteudo')
 
 <div id="page-content">
     <!-- Wizard Header -->

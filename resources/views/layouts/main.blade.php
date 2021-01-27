@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>ProUI - Responsive Bootstrap Admin Template</title>
+        <title>SiScouting</title>
 
         <meta name="description" content="ProUI is a Responsive Bootstrap Admin Template created by pixelcave and published on Themeforest.">
         <meta name="author" content="pixelcave">
@@ -91,7 +91,7 @@
                         <!-- Sidebar Content -->
                         <div class="sidebar-content">
                             <!-- Brand -->
-                            <a href="/home" class="sidebar-brand">
+                            <a href="/dashboard" class="sidebar-brand">
                                 <i class="fa fa-futbol-o"></i><span class="sidebar-nav-mini-hide"><strong>SiS</strong>couting</span>
                             </a>
                             <!-- END Brand -->
@@ -103,13 +103,10 @@
                                         <img src="img/placeholders/avatars/avatar2.jpg" alt="avatar">
                                     </a>
                                 </div>
-                                <div class="sidebar-user-name">Admin</div>
+                                <div class="sidebar-user-name">@yield('admin')</div>
                                 <div class="sidebar-user-links">
                                     <a href="page_ready_user_profile.html" data-toggle="tooltip" data-placement="bottom" title="Profile"><i class="gi gi-user"></i></a>
-                                    <a href="page_ready_inbox.html" data-toggle="tooltip" data-placement="bottom" title="Messages"><i class="gi gi-envelope"></i></a>
-                                    <!-- Opens the user settings modal that can be found at the bottom of each page (page_footer.html in PHP version) -->
-                                    <a href="javascript:void(0)" class="enable-tooltip" data-placement="bottom" title="Settings" onclick="$('#modal-user-settings').modal('show');"><i class="gi gi-cogwheel"></i></a>
-                                    <a href="login.html" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="gi gi-exit"></i></a>
+                                    <a href="/logout" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="gi gi-exit"></i></a>
                                 </div>
                             </div>
                             <!-- END User Info -->
@@ -117,23 +114,7 @@
                             <!-- Sidebar Navigation -->
                             <ul class="sidebar-nav">
                                 <li>
-                                    <a href="/home" class=" active"><i class="fa fa-home sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Home</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-street-view sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Jogadores</span></a>
-                                    <ul>
-                                        <li>
-                                            <a href="/">Novo Jogador</a>
-                                        </li>
-                                        <li>
-                                            <a href="/listJogador">Listar Jogadores</a>
-                                        </li>
-
-                                    </ul>
-                                </li>
-                                <li class="sidebar-header">
-                                    <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a></span>
-                                    <span class="sidebar-header-title">Equipa Tecnico</span>
+                                    <a href="/dashboard" class=" active"><i class="fa fa-home sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Home</span></a>
                                 </li>
                                 <li>
                                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-certificate sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Clube</span></a>
@@ -165,6 +146,23 @@
                                         <li>
                                             <a href="page_ui_color_themes.html">Color Themes</a>
                                         </li>
+                                    </ul>
+                                </li>
+                                <li class="sidebar-header">
+                                    <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a></span>
+                                    <span class="sidebar-header-title">Equipa Tecnico</span>
+                                </li>
+
+                                <li>
+                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-street-view sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Jogadores</span></a>
+                                    <ul>
+                                        <li>
+                                            <a href="/">Novo Jogador</a>
+                                        </li>
+                                        <li>
+                                            <a href="/listJogador">Listar Jogadores</a>
+                                        </li>
+
                                     </ul>
                                 </li>
                                 <li>
@@ -338,7 +336,7 @@
                                     <li class="divider"></li>
                                     <li>
                                         <a href="page_ready_lock_screen.html"><i class="fa fa-lock fa-fw pull-right"></i> Lock Account</a>
-                                        <a href="login.html"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                                        <a href="\logout"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
                                     </li>
 
                                 </ul>
@@ -355,11 +353,8 @@
                         <!-- For an image header add the class 'content-header-media' and an image as in the following example -->
 
                         <!-- END Dashboard Header -->
-                            @yield('home')
-                            @yield('listJogador')
-                            @yield('perfilJogador')
-                            @yield('addClube')
-                            @yield('addTecnico')
+                            @yield('conteudo')
+
                         <!-- Mini Top Stats Row -->
                         <!-- END Widgets Row -->
                     </div>
@@ -394,6 +389,9 @@
         <script src="js/helpers/gmaps.min.js"></script>
         <script src="js/pages/formsWizard.js"></script>
         <script>$(function(){ FormsWizard.init(); });</script>
+
+        <script src="js/pages/formsValidation.js"></script>
+        <script>$(function() { FormsValidation.init(); });</script>
 
         <!-- Load and execute javascript code used only in this page -->
         <script src="js/pages/tablesDatatables.js"></script>
