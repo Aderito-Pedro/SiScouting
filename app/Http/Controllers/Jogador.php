@@ -15,4 +15,5 @@ class Jogador extends Controller
         $user = auth()->user();
         return view('gestor/perfilJogador',['user'=>$user]);
     }
+
 }

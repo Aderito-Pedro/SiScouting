@@ -62,12 +62,13 @@
             <!-- Login Block -->
             <div class="block push-bit">
                 <!-- Login Form -->
-                <form action="/home" id="form-login" class="form-horizontal form-bordered form-control-borderless">
+                <form action="{{route('system.login')}}" method="post" id="form-login" class="form-horizontal form-bordered form-control-borderless">
+                    @csrf
                     <div class="form-group">
                         <div class="col-xs-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
-                                <input type="text" id="login-email" name="login-email" class="form-control input-lg" placeholder="Email">
+                                <input type="text" id="login-email" name="email" class="form-control input-lg" placeholder="Email">
                             </div>
                         </div>
                     </div>
@@ -75,7 +76,7 @@
                         <div class="col-xs-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
-                                <input type="password" id="login-password" name="login-password" class="form-control input-lg" placeholder="Password">
+                                <input type="password" id="login-password" name="password" class="form-control input-lg" placeholder="Password">
                             </div>
                         </div>
                     </div>

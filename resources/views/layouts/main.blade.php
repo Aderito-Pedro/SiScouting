@@ -120,10 +120,7 @@
                                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-certificate sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Clube</span></a>
                                     <ul>
                                         <li>
-                                            <a href="/addTecnico">Novo Tecnico</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_ui_draggable_blocks.html">Draggable Blocks</a>
+                                            <a href="/verClube">Ver Dados do Clube</a>
                                         </li>
                                         <li>
                                             <a href="page_ui_typography.html">Typography</a>
@@ -134,52 +131,35 @@
                                         <li>
                                             <a href="page_ui_navigation_more.html">Navigation &amp; More</a>
                                         </li>
-                                        <li>
-                                            <a href="page_ui_horizontal_menu.html">Horizontal Menu</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_ui_progress_loading.html">Progress &amp; Loading</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_ui_preloader.html">Page Preloader</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_ui_color_themes.html">Color Themes</a>
-                                        </li>
+
                                     </ul>
                                 </li>
                                 <li class="sidebar-header">
                                     <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a></span>
                                     <span class="sidebar-header-title">Equipa Tecnico</span>
                                 </li>
-
                                 <li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-street-view sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Jogadores</span></a>
+                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-users sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Equipa</span></a>
                                     <ul>
                                         <li>
-                                            <a href="/">Novo Jogador</a>
+                                            <a href="/addTecnico">Novo Tecnico</a>
                                         </li>
                                         <li>
-                                            <a href="/listJogador">Listar Jogadores</a>
+                                            <a href="page_forms_components.html">Ver Dados Da Equipe tecnica</a>
                                         </li>
 
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-notes_2 sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Forms</span></a>
+                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-street-view sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Jogadores</span></a>
                                     <ul>
                                         <li>
-                                            <a href="page_forms_general.html">General</a>
+                                            <a href="#">Novo Jogador</a>
                                         </li>
                                         <li>
-                                            <a href="page_forms_components.html">Components</a>
+                                            <a href="/listJogador">Listar Jogadores</a>
                                         </li>
-                                        <li>
-                                            <a href="page_forms_validation.html">Validation</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_forms_wizard.html">Wizard</a>
-                                        </li>
+
                                     </ul>
                                 </li>
                                 <li>
@@ -231,27 +211,7 @@
                                         <li>
                                             <a href="page_layout_static_main_sidebar_mini.html">Mini Main Sidebar</a>
                                         </li>
-                                        <li>
-                                            <a href="page_layout_static_main_sidebar_partial.html">Partial Main Sidebar</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_static_main_sidebar_visible.html">Visible Main Sidebar</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_static_alternative_sidebar_partial.html">Partial Alternative Sidebar</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_static_alternative_sidebar_visible.html">Visible Alternative Sidebar</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_static_no_sidebars.html">No Sidebars</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_static_both_partial.html">Both Sidebars Partial</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_static_animated.html">Animated Sidebar Transitions</a>
-                                        </li>
+
                                     </ul>
                                 </li>
 

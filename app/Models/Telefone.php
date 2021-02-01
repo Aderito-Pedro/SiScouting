@@ -5,9 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Clube extends Model
+class Telefone extends Model
 {
     use HasFactory;
 
-    protected $dates = ['data_fundacao'];
+
+    protected $fillable = [
+        'numero',
+        'id_clube',
+        'id_jogador',
+        'id_tecnico'
+    ];
 }

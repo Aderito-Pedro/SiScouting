@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Clube;
+use App\Models\Provincia;
+use App\Models\Municipio;
 
 class Siscouting extends Controller
 {
@@ -13,10 +16,22 @@ class Siscouting extends Controller
         return view('login');
     }
 
+    public function stogin(Request $request){
+        $dados = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+        if (Auth::attempt($dados)) {
+            $use = auth()->user();
+            return view('gestor/home',['user'=>$use]);
+        }
+        //return redirect()->back();
+    }
+
     public function logout(){
         Auth::logout();
         Session::flush();
-        return redirect('/login');
+        return redirect(route('sis.home'));
     }
 
     public function store(Request $request){
@@ -27,22 +42,22 @@ class Siscouting extends Controller
         $user->password = bcrypt($request->password);
         $user->tipo = $request->tipo;
 
-        /*if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $requestImage = $request->image;
-
-            $extension = $requestImage->extension();
-            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
-            $request->image->move(public_path('img/!!!'),$imageName);
-            $user->img = $imageName;
-        }*/
         $user->save();
         $use = auth()->user();
-        return redirect('/home',['user'=>$use]);
+        return redirect('/dashboard',['user'=>$use]);
     }
+
     public function home(){
         $user = auth()->user();
         if($user->tipo == "Gestor"){
-            return view('gestor/home',['user'=>$user]);
+            $cont = Clube::where('id_user',$user->id)->count();
+            if ($cont == 0) {
+                $provincias = Provincia::all();
+                $municipios = Municipio::all();
+                return view('gestor/addClube',['pro'=>$provincias,'municipios'=>$municipios]);
+            }elseif($cont >0){
+                return view('gestor/home',['user'=>$user]);
+            }
         }elseif($user->tipo == "Comissario"){
 
             echo "AINDA NÃO EXISTE DASHBOARD";
