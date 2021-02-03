@@ -34,7 +34,7 @@
         <!-- END Stylesheets -->
 
         <!-- Modernizr (browser feature detection library) -->
-        <script src="js/vendor/modernizr.min.js"></script>
+
     </head>
     <body>
         <!-- Page Wrapper -->
@@ -114,11 +114,14 @@
                             <!-- Sidebar Navigation -->
                             <ul class="sidebar-nav">
                                 <li>
-                                    <a href="/dashboard" class=" active"><i class="fa fa-home sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Home</span></a>
+                                    <a href="/dashboard" class=" active"><i class="fa fa-home sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Pagina Principal</span></a>
                                 </li>
                                 <li>
                                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-certificate sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Clube</span></a>
                                     <ul>
+                                        <li>
+                                            <a href="/addResponsavel">Registar Responsiveis do Clube</a>
+                                        </li>
                                         <li>
                                             <a href="/verClube">Ver Dados do Clube</a>
                                         </li>
@@ -163,7 +166,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-table sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Tables</span></a>
+                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-bar-chart-o sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Estatisticas </span></a>
                                     <ul>
                                         <li>
                                             <a href="page_tables_general.html">General</a>
@@ -177,7 +180,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-cup sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Icon Sets</span></a>
+                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-cup sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Trofeus</span></a>
                                     <ul>
                                         <li>
                                             <a href="page_icons_fontawesome.html">Font Awesome</a>
@@ -185,33 +188,6 @@
                                         <li>
                                             <a href="page_icons_glyphicons_pro.html">Glyphicons Pro</a>
                                         </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-show_big_thumbnails sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Page Layouts</span></a>
-                                    <ul>
-                                        <li>
-                                            <a href="page_layout_static.html">Static</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_static_fixed_footer.html">Static + Fixed Footer</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_fixed_top.html">Fixed Top Header</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_fixed_top_footer.html">Fixed Top Header + Footer</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_fixed_bottom.html">Fixed Bottom Header</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_fixed_bottom_footer.html">Fixed Bottom Header + Footer</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_static_main_sidebar_mini.html">Mini Main Sidebar</a>
-                                        </li>
-
                                     </ul>
                                 </li>
 
@@ -340,28 +316,12 @@
         <!-- jQuery, Bootstrap.js, jQuery plugins and Custom JS code -->
         <script src="js/vendor/jquery.min.js"></script>
         <script src="js/vendor/bootstrap.min.js"></script>
+
         <script src="js/plugins.js"></script>
         <script src="js/app.js"></script>
 
         <!-- Google Maps API Key (you will have to obtain a Google Maps API key to use Google Maps) -->
         <!-- For more info please have a look at https://developers.google.com/maps/documentation/javascript/get-api-key#key -->
-
-        <script src="js/helpers/gmaps.min.js"></script>
-        <script src="js/pages/formsWizard.js"></script>
-        <script>$(function(){ FormsWizard.init(); });</script>
-
-        <script src="js/pages/formsValidation.js"></script>
-        <script>$(function() { FormsValidation.init(); });</script>
-
-        <!-- Load and execute javascript code used only in this page -->
-        <script src="js/pages/tablesDatatables.js"></script>
-        <script>$(function(){ TablesDatatables.init(); });</script>
-        <!-- Load and execute javascript code used only in this page -->
-        <script src="js/pages/index.js"></script>
-        <script>$(function(){ Index.init(); });</script>
-
-
-
 
     </body>
 </html>

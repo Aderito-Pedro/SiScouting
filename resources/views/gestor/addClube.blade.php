@@ -35,14 +35,39 @@
 
         <!-- Modernizr (browser feature detection library) -->
         <script src="js/vendor/modernizr.min.js"></script>
+        <script src="js/jquery-3.4.1.js"></script>
+
     </head>
     <body>
+        <header class="navbar navbar-default">
+
+            <ul class="nav navbar-nav-custom pull-right">
+
+
+
+                <!-- User Dropdown -->
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="img/placeholders/avatars/avatar2.jpg" alt="avatar"> <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
+                        <li>
+                            <a href="\logout"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <!-- END User Dropdown -->
+            </ul>
+            <!-- END Right Header Navigation -->
+        </header>
 
         <div id="page-wrapper">
 
                 <div id="main-container">
 <div id="page-content">
     <!-- Wizard Header -->
+
     <div class="content-header">
         <div class="header-section">
             @if($errors->all())
@@ -105,7 +130,7 @@
                             <label class="col-md-4 control-label" for="val_email">Email <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" id="val_email" name="email" class="form-control" placeholder="test@example.com" required>
+                                    <input type="email" id="val_email" name="email" class="form-control" placeholder="test@example.com" required>
                                     <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
                                 </div>
                             </div>
@@ -120,37 +145,30 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="example-file-input">Emblema</label>
+                            <label class="col-md-4 control-label" >Emblema</label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="file" id="example-file-input" name="image">
-
+                                    <input type="file" id="image" name="image" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="example-file-input">Data de Fundação <span class="text-danger">*</span></label>
+                            <label class="col-md-4 control-label" for="example-datepicker">Data de Fundação <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <div class="input-group">
                                     <input type="date" id="example-datepicker3" name="data_fundacao"  placeholder="dd-mm-yyyy" required>
-                                    <span class="input-group-addon"><i class="fa fa-calendar-o"></i></span>
+
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="val_skill">Localização <span class="text-danger">*</span></label>
                             <div class="col-md-6">
-                                <select id="val_skill" name="provincia" class="form-control">
-                                    <option value="">Escolha Provincia</option>
-                                    @foreach($pro as $provincia)
-                                        <option value="{{$provincia->id}}">{{$provincia->nome}}</option>
-                                    @endforeach
+                                <label for="val_skill">Provincia</label>
+                                <select id="val_provincia" name="val_provincia" class="form-control">
                                 </select>
-                                <select id="val_skill" name="municipio" class="form-control">
-                                    <option value="">Escolha Municipio</option>
-                                    @foreach($municipios as $municipio)
-                                        <option value="{{$municipio->id}}">{{$municipio->nome}}</option>
-                                    @endforeach
+                                <label for="val_skill">Municipio</label>
+                                <select id="val_municipio" name="val_municipio" class="form-control">
                                 </select>
                             </div>
                         </div>
@@ -176,7 +194,7 @@
                             <div class="col-md-6">
                                 <div class="input-group">
                                     <input type="text" id="val_username" name="escalao" class="form-control" placeholder="Escalão.." required>
-                                    <span class="input-group-addon"><i class="fa fa-circle-o-notchr"></i></span>
+                                    <span class="input-group-addon"><i class="fa fa-circle-o-notch"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -184,7 +202,7 @@
                             <label class="col-md-4 control-label" for="masked_phone">Contacto</label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" id="masked_phone" name="telefone" class="form-control" placeholder="(+244) 999-999-999">
+                                    <input type="text" id="masked_phone" name="telefone" class="form-control" placeholder="(+244) 999-999-999" required>
                                     <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                                 </div>
                             </div>
@@ -201,7 +219,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="example-advanced-bio">Descrição</label>
                             <div class="col-md-8">
-                                <textarea id="example-advanced-bio" name="descricao" rows="6" class="form-control" placeholder="Tell us your story.."></textarea>
+                                <textarea id="example-advanced-bio" name="descricao" rows="6" class="form-control" placeholder="Descrição bibligrafica do Clube..."></textarea>
                             </div>
                         </div>
 
@@ -255,6 +273,46 @@
 
 <script src="js/helpers/gmaps.min.js"></script>
 <script src="js/pages/formsWizard.js"></script>
+<script>
+
+    $(function (){
+        $.ajax({
+            url: '{{route('sis.getProvincia')}}',
+            type: 'get',
+            beforeSend: function (){
+                $("#val_provincia").html("carregando...");
+            },
+            success: function (data){
+                $("#val_provincia").html(data);
+            },
+            error: function (data){
+                $("#val_provincia").html("Erro ao Carregar");
+            }
+
+        });
+
+    });
+
+
+    $('#val_provincia').on('change',function (){
+        var idEstado = $("#val_provincia").val();
+        console.log(idEstado);
+        $.ajax({
+            url: '/buscamunicipio/'+idEstado,
+            type: 'get',
+            beforeSend: function (){
+                $("#val_municipio").html("carregando");
+            },
+            success: function (data){
+                $("#val_municipio").html(data);
+            },
+            error: function (data){
+                $("#val_municipio").html("Erro ao Carregar");
+            }
+        });
+    });
+
+    </script>
 <script>$(function(){ FormsWizard.init(); });</script>
 
 <script src="js/pages/formsValidation.js"></script>

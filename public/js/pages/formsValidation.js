@@ -49,7 +49,7 @@ var FormsValidation = function() {
                         required: true,
                         minlength: 5
                     },
-                    val_skill: {
+                    val_categoria: {
                         required: true
                     },
                     val_website: {
@@ -88,7 +88,7 @@ var FormsValidation = function() {
                         equalTo: 'Please enter the same password as above'
                     },
                     val_bio: 'Don\'t be shy, share something with us :-)',
-                    val_skill: 'Please select a skill!',
+                    val_categoria: 'Por favor selecione uma Categoria',
                     val_website: 'Please enter your website!',
                     val_digits: 'Please enter only digits!',
                     val_number: 'Please enter a number!',

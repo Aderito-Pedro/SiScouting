@@ -22,16 +22,20 @@ class Siscouting extends Controller
             'password' => $request->password,
         ];
         if (Auth::attempt($dados)) {
-            $use = auth()->user();
-            return view('gestor/home',['user'=>$use]);
+            return redirect(route('sis.home'));
+        }else{
+            return redirect()->back();
         }
-        //return redirect()->back();
     }
 
     public function logout(){
-        Auth::logout();
-        Session::flush();
-        return redirect(route('sis.home'));
+        if(Auth::check() === true){
+            Auth::logout();
+            Session::flush();
+            return redirect(route('sis.home'));
+        }else{
+            return redirect(route('login'));
+        }
     }
 
     public function store(Request $request){
@@ -43,24 +47,30 @@ class Siscouting extends Controller
         $user->tipo = $request->tipo;
 
         $user->save();
-        $use = auth()->user();
-        return redirect('/dashboard',['user'=>$use]);
+        $dados = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+        Auth::attempt($dados);
+        return redirect(route('sis.home'));
     }
 
     public function home(){
-        $user = auth()->user();
-        if($user->tipo == "Gestor"){
-            $cont = Clube::where('id_user',$user->id)->count();
-            if ($cont == 0) {
-                $provincias = Provincia::all();
-                $municipios = Municipio::all();
-                return view('gestor/addClube',['pro'=>$provincias,'municipios'=>$municipios]);
-            }elseif($cont >0){
-                return view('gestor/home',['user'=>$user]);
-            }
-        }elseif($user->tipo == "Comissario"){
+        if(Auth::check() === true){
+            $user = auth()->user();
+            if($user->tipo == "Gestor"){
+                $cont = Clube::where('id_user',$user->id)->count();
+                if ($cont === 0) {
+                    return view('gestor/addClube');
+                }elseif($cont > 0){
+                    return view('gestor/home',['user'=>$user]);
+                }
+            }elseif($user->tipo == "Comissario"){
 
-            echo "AINDA NÃO EXISTE DASHBOARD";
+                echo "AINDA NÃO EXISTE DASHBOARD";
+            }
+        }else{
+            return redirect(route('login'));
         }
     }
 }

@@ -62,7 +62,7 @@
             <!-- Login Block -->
             <div class="block push-bit">
                 <!-- Login Form -->
-                <form action="{{route('system.login')}}" method="post" id="form-login" class="form-horizontal form-bordered form-control-borderless">
+                <form action="{{route('sis.login')}}" method="post" id="form-login" class="form-horizontal form-bordered form-control-borderless">
                     @csrf
                     <div class="form-group">
                         <div class="col-xs-12">
