@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if IE 9]>         <html class="no-js lt-ie10" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="pt-br"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
 
@@ -34,7 +34,8 @@
         <!-- END Stylesheets -->
 
         <!-- Modernizr (browser feature detection library) -->
-
+        <script src="js/vendor/modernizr.min.js"></script>
+        <script src="js/jquery-3.4.1.js"></script>
     </head>
     <body>
         <!-- Page Wrapper -->
@@ -91,7 +92,7 @@
                         <!-- Sidebar Content -->
                         <div class="sidebar-content">
                             <!-- Brand -->
-                            <a href="/dashboard" class="sidebar-brand">
+                            <a href="{{route('sis.home')}}" class="sidebar-brand">
                                 <i class="fa fa-futbol-o"></i><span class="sidebar-nav-mini-hide"><strong>SiS</strong>couting</span>
                             </a>
                             <!-- END Brand -->
@@ -99,14 +100,14 @@
                             <!-- User Info -->
                             <div class="sidebar-section sidebar-user clearfix sidebar-nav-mini-hide">
                                 <div class="sidebar-user-avatar">
-                                    <a href="page_ready_user_profile.html">
+                                    <a href="#">
                                         <img src="img/placeholders/avatars/avatar2.jpg" alt="avatar">
                                     </a>
                                 </div>
                                 <div class="sidebar-user-name">@yield('admin')</div>
                                 <div class="sidebar-user-links">
-                                    <a href="page_ready_user_profile.html" data-toggle="tooltip" data-placement="bottom" title="Profile"><i class="gi gi-user"></i></a>
-                                    <a href="/logout" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="gi gi-exit"></i></a>
+                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Profile"><i class="gi gi-user"></i></a>
+                                    <a href="{{route('sis.logout')}}" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="gi gi-exit"></i></a>
                                 </div>
                             </div>
                             <!-- END User Info -->
@@ -114,41 +115,55 @@
                             <!-- Sidebar Navigation -->
                             <ul class="sidebar-nav">
                                 <li>
-                                    <a href="/dashboard" class=" active"><i class="fa fa-home sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Pagina Principal</span></a>
+                                    <a href="{{route('sis.home')}}" class=" active"><i class="fa fa-home sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Pagina Principal</span></a>
                                 </li>
                                 <li>
                                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-certificate sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Clube</span></a>
                                     <ul>
                                         <li>
-                                            <a href="/addResponsavel">Registar Responsiveis do Clube</a>
+                                            <a href="{{route('gest.verClube')}}">Ver Dados do Clube</a>
                                         </li>
                                         <li>
-                                            <a href="/verClube">Ver Dados do Clube</a>
+                                            <a href="{{route('gest.addResponsavel')}}">Registar Responsiveis do Clube</a>
                                         </li>
                                         <li>
-                                            <a href="page_ui_typography.html">Typography</a>
+                                            <a href="{{route('gest.listResponsavel')}}">Listar Responsiveis do clube</a>
                                         </li>
                                         <li>
-                                            <a href="page_ui_buttons_dropdowns.html">Buttons &amp; Dropdowns</a>
+                                            <a href="{{route('gest.competicao')}}">Inscrever-se em Competição</a>
                                         </li>
                                         <li>
-                                            <a href="page_ui_navigation_more.html">Navigation &amp; More</a>
+                                            <a href="#">Navigation &amp; More</a>
                                         </li>
 
                                     </ul>
                                 </li>
+                                <!--<li>
+                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-show_big_thumbnails sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide"></span></a>
+                                    <ul>
+                                        <li>
+                                            <a href="page_layout_static_no_sidebars.html">No Sidebars</a>
+                                        </li>
+                                        <li>
+                                            <a href="page_layout_static_both_partial.html">Both Sidebars Partial</a>
+                                        </li>
+                                        <li>
+                                            <a href="page_layout_static_animated.html">Animated Sidebar Transitions</a>
+                                        </li>
+                                    </ul>
+                                </li>-->
                                 <li class="sidebar-header">
                                     <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a></span>
-                                    <span class="sidebar-header-title">Equipa Tecnico</span>
+                                    <span class="sidebar-header-title">Equipa Técnico</span>
                                 </li>
                                 <li>
                                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-users sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Equipa</span></a>
                                     <ul>
                                         <li>
-                                            <a href="/addTecnico">Novo Tecnico</a>
+                                            <a href="{{route('gest.addTecnico')}}">Novo Técnico</a>
                                         </li>
                                         <li>
-                                            <a href="page_forms_components.html">Ver Dados Da Equipe tecnica</a>
+                                            <a href="{{route('gest.listTecnico')}}">Listar Equipe Técnica</a>
                                         </li>
 
                                     </ul>
@@ -157,10 +172,10 @@
                                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-street-view sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Jogadores</span></a>
                                     <ul>
                                         <li>
-                                            <a href="#">Novo Jogador</a>
+                                            <a href="{{route('jogador.addJogador')}}">Novo Jogador</a>
                                         </li>
                                         <li>
-                                            <a href="/listJogador">Listar Jogadores</a>
+                                            <a href="{{route('jogador.listJogador')}}">Listar Jogadores</a>
                                         </li>
 
                                     </ul>
@@ -169,13 +184,13 @@
                                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-bar-chart-o sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Estatisticas </span></a>
                                     <ul>
                                         <li>
-                                            <a href="page_tables_general.html">General</a>
+                                            <a href="#">General</a>
                                         </li>
                                         <li>
-                                            <a href="page_tables_responsive.html">Responsive</a>
+                                            <a href="#">Responsive</a>
                                         </li>
                                         <li>
-                                            <a href="page_tables_datatables.html">Datatables</a>
+                                            <a href="#">Datatables</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -183,10 +198,10 @@
                                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-cup sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Trofeus</span></a>
                                     <ul>
                                         <li>
-                                            <a href="page_icons_fontawesome.html">Font Awesome</a>
+                                            <a href="#">Font Awesome</a>
                                         </li>
                                         <li>
-                                            <a href="page_icons_glyphicons_pro.html">Glyphicons Pro</a>
+                                            <a href="#">Glyphicons Pro</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -238,7 +253,7 @@
                         <!-- END Left Header Navigation -->
 
                         <!-- Search Form -->
-                        <form action="page_ready_search_results.html" method="post" class="navbar-form-custom">
+                        <form action="#" method="post" class="navbar-form-custom">
                             <div class="form-group">
                                 <input type="text" id="top-search" name="top-search" class="form-control" placeholder="Pesquisa...">
                             </div>
@@ -272,7 +287,7 @@
                                     <li class="divider"></li>
                                     <li>
                                         <a href="page_ready_lock_screen.html"><i class="fa fa-lock fa-fw pull-right"></i> Lock Account</a>
-                                        <a href="\logout"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
+                                        <a href="{{route('sis.logout')}}"><i class="fa fa-ban fa-fw pull-right"></i> Logout</a>
                                     </li>
 
                                 </ul>
@@ -314,14 +329,16 @@
         <!-- END User Settings -->
 
         <!-- jQuery, Bootstrap.js, jQuery plugins and Custom JS code -->
+
         <script src="js/vendor/jquery.min.js"></script>
         <script src="js/vendor/bootstrap.min.js"></script>
-
         <script src="js/plugins.js"></script>
         <script src="js/app.js"></script>
-
         <!-- Google Maps API Key (you will have to obtain a Google Maps API key to use Google Maps) -->
         <!-- For more info please have a look at https://developers.google.com/maps/documentation/javascript/get-api-key#key -->
+
+        <script src="js/pages/tablesDatatables.js"></script>
+        <script>$(function(){ TablesDatatables.init(); });</script>
 
     </body>
 </html>

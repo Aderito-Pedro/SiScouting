@@ -87,3 +87,19 @@ Analise de Sistema
 
 
     Funcionalidades | Operações
+
+
+
+jogador(
+    id,
+    *img,
+    -nome,
+    -apelido,
+    descricao,
+    -data_nascimento,
+    perna,
+    -altura,
+    -peso,
+    estado,
+    id_bibliografia
+);

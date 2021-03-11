@@ -19987,6 +19987,11 @@ select {
   position: fixed;
 }
 
+.fixed-img{
+    height: auto;
+    max-width: 100px;
+}
+
 .absolute {
   position: absolute;
 }

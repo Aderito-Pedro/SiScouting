@@ -24,7 +24,7 @@
                 <div class="block-section text-center">
                     <a href="javascript:void(0)">
                         <div class="col-sm-12 block-section text-center">
-                            <img src="img/placeholders/photos/photo4.jpg" class="img-responsive" alt="image">
+                            <img src="img/siscout/clube/{{$clube->emblema != NULL ? $clube->emblema : "SiscOUTING_CLUBE.png"}}" class="img-responsive" alt="image">
                         </div>
                     </a>
                     <h3>
@@ -65,9 +65,9 @@
                         </tr>
                         <tr>
                             <td><strong>Telefone</strong></td>
-                            @foreach($telefones as $telefone)
-                                <td>{{$telefone->numero}};</td>
-                            @endforeach
+
+
+                                <td>{{$clube->telefone1}}; {{$clube->telefone2 != NULL ? $clube->telefone2.";" :""}}</td>
                         </tr>
                         <tr>
                             <td><strong>Email</strong></td>
@@ -119,15 +119,58 @@
                 <!-- Products in Cart Content -->
                 <table class="table table-bordered table-striped table-vcenter">
                     <tbody>
-                        <tr>
-                            <th class="text-center" style="width: 100px;" rowspan="2">Presidente</th>
-                            <td > Adérito António Quidissala Pedro</td>
-                            <td><span class="group-addon"><i class="fa fa-phone"> </i></span> 935994147</td>
-                            <tr>
-                                <td colspan="2"><span class="group-addon"><i class="fa fa-at"></i> </i></span>Email</td>
+                        @foreach($responsavels as $responsavel)
+                            @if($responsavel->categoria === 'Presidente')
+                                <tr>
+                                    <th class="text-center" style="width: 100px;" rowspan="2">{{$responsavel->categoria}}</th>
+                                    <td > {{$responsavel->nome}}</td>
+                                    <td><span class="group-addon"><i class="fa fa-phone"> </i></span> {{$responsavel->numero1}}</td>
+                                    <tr>
+                                        <td colspan="2"><strong><span class="group-addon"><i class="fa fa-at"></i></strong> </i></span> {{$responsavel->email}}</td>
 
-                            </tr>
-                        </tr>
+                                    </tr>
+                                </tr>
+                            @endif
+                        @endforeach
+                        @foreach($responsavels as $responsavel)
+                            @if($responsavel->categoria === 'Vice-Presidente')
+                                <tr>
+                                    <th class="text-center" style="width: 100px;" rowspan="2">{{$responsavel->categoria}}</th>
+                                    <td > {{$responsavel->nome}}</td>
+                                    <td><span class="group-addon"><i class="fa fa-phone"> </i></span> {{$responsavel->numero1}}</td>
+                                    <tr>
+                                        <td colspan="2"><strong><span class="group-addon"><i class="fa fa-at"></i></strong> </i></span> {{$responsavel->email}}</td>
+
+                                    </tr>
+                                </tr>
+                            @endif
+                        @endforeach
+                        @foreach($responsavels as $responsavel)
+                            @if($responsavel->categoria === 'Coord. Técnico')
+                                <tr>
+                                    <th class="text-center" style="width: 100px;" rowspan="2">{{$responsavel->categoria}}</th>
+                                    <td > {{$responsavel->nome}}</td>
+                                    <td><span class="group-addon"><i class="fa fa-phone"> </i></span> {{$responsavel->numero1}}</td>
+                                    <tr>
+                                        <td colspan="2"><strong><span class="group-addon"><i class="fa fa-at"></i></strong> </i></span> {{$responsavel->email}}</td>
+
+                                    </tr>
+                                </tr>
+                            @endif
+                        @endforeach
+                        @foreach($responsavels as $responsavel)
+                            @if($responsavel->categoria === 'Coord. Fut. Formação')
+                                <tr>
+                                    <th class="text-center" style="width: 100px;" rowspan="2">{{$responsavel->categoria}}</th>
+                                    <td > {{$responsavel->nome}}</td>
+                                    <td><span class="group-addon"><i class="fa fa-phone"> </i></span> {{$responsavel->numero1}}</td>
+                                    <tr>
+                                        <td colspan="2"><strong><span class="group-addon"><i class="fa fa-at"></i></strong> </i></span> {{$responsavel->email}}</td>
+
+                                    </tr>
+                                </tr>
+                            @endif
+                        @endforeach
                     </tbody>
                 </table>
                 <!-- END Products in Cart Content -->
@@ -144,15 +187,33 @@
                 <!-- Products in Cart Content -->
                 <table class="table table-bordered table-striped table-vcenter">
                     <tbody>
-                        <tr>
-                            <th class="text-center" style="width: 100px;" rowspan="2">Treinador</th>
-                            <td > Adérito António Quidissala Pedro</td>
-                            <td><span class="group-addon"><i class="fa fa-phone"> </i></span> 935994147</td>
-                            <tr>
-                                <td colspan="2"><span class="group-addon"><i class="fa fa-at"></i> </i></span>Email</td>
+                        @foreach($tecnicos as $tecnico)
+                            @if($tecnico->categoria === 'Treinador Principal')
+                                <tr>
+                                    <th class="text-center" style="width: 100px;" rowspan="2">{{$tecnico->categoria}}</th>
+                                    <td > {{$tecnico->nome}}</td>
+                                    <td><span class="group-addon"><i class="fa fa-phone"> </i></span> {{$tecnico->contacto1}}</td>
+                                    <tr>
+                                        <td colspan="2"><span class="group-addon"><i class="fa fa-at"></i> </i></span> {{$tecnico->email}}</td>
 
-                            </tr>
-                        </tr>
+                                    </tr>
+                                </tr>
+                            @endif
+                        @endforeach
+                        @foreach($tecnicos as $tecnico)
+                            @if($tecnico->categoria === 'Treinador Adjunto')
+                                <tr>
+                                    <th class="text-center" style="width: 100px;" rowspan="2">{{$tecnico->categoria}}</th>
+                                    <td > {{$tecnico->nome}}</td>
+                                    <td><span class="group-addon"><i class="fa fa-phone"> </i></span> {{$tecnico->contacto1}}</td>
+                                    <tr>
+                                        <td colspan="2"><span class="group-addon"><i class="fa fa-at"></i> </i></span> {{$tecnico->email}}</td>
+
+                                    </tr>
+                                </tr>
+                            @endif
+                        @endforeach
+
                     </tbody>
                 </table>
                 <!-- END Products in Cart Content -->
@@ -170,15 +231,58 @@
                 <!-- Products in Cart Content -->
                 <table class="table table-bordered table-striped table-vcenter">
                     <tbody>
-                        <tr>
-                            <th class="text-center" style="width: 100px;" rowspan="2">Médico</th>
-                            <td > Adérito António Quidissala Pedro</td>
-                            <td><span class="group-addon"><i class="fa fa-phone"> </i></span> 935994147</td>
-                            <tr>
-                                <td colspan="2"><span class="group-addon"><i class="fa fa-at"></i> </i></span>Email</td>
+                        @foreach($tecnicos as $tecnico)
+                            @if($tecnico->categoria === 'Médico')
+                                <tr>
+                                    <th class="text-center" style="width: 100px;" rowspan="2">{{$tecnico->categoria}}</th>
+                                    <td > {{$tecnico->nome}}</td>
+                                    <td><span class="group-addon"><i class="fa fa-phone"> </i></span> {{$tecnico->contacto1}}</td>
+                                    <tr>
+                                        <td colspan="2"><span class="group-addon"><i class="fa fa-at"></i> </i></span> {{$tecnico->email}}</td>
 
-                            </tr>
-                        </tr>
+                                    </tr>
+                                </tr>
+                            @endif
+                        @endforeach
+                        @foreach($tecnicos as $tecnico)
+                            @if($tecnico->categoria === 'Massagista')
+                                <tr>
+                                    <th class="text-center" style="width: 100px;" rowspan="2">{{$tecnico->categoria}}</th>
+                                    <td > {{$tecnico->nome}}</td>
+                                    <td><span class="group-addon"><i class="fa fa-phone"> </i></span> {{$tecnico->contacto1}}</td>
+                                    <tr>
+                                        <td colspan="2"><span class="group-addon"><i class="fa fa-at"></i> </i></span> {{$tecnico->email}}</td>
+
+                                    </tr>
+                                </tr>
+                            @endif
+                        @endforeach
+                        @foreach($tecnicos as $tecnico)
+                            @if($tecnico->categoria === 'Fisioterapeuta')
+                                <tr>
+                                    <th class="text-center" style="width: 100px;" rowspan="2">{{$tecnico->categoria}}</th>
+                                    <td > {{$tecnico->nome}}</td>
+                                    <td><span class="group-addon"><i class="fa fa-phone"> </i></span> {{$tecnico->contacto1}}</td>
+                                    <tr>
+                                        <td colspan="2"><span class="group-addon"><i class="fa fa-at"></i> </i></span> {{$tecnico->email}}</td>
+
+                                    </tr>
+                                </tr>
+                            @endif
+                        @endforeach
+                        @foreach($tecnicos as $tecnico)
+                            @if($tecnico->categoria === 'Técnico Equipamento')
+                                <tr>
+                                    <th class="text-center" style="width: 100px;" rowspan="2">{{$tecnico->categoria}}</th>
+                                    <td > {{$tecnico->nome}}</td>
+                                    <td><span class="group-addon"><i class="fa fa-phone"> </i></span> {{$tecnico->contacto1}}</td>
+                                    <tr>
+                                        <td colspan="2"><span class="group-addon"><i class="fa fa-at"></i> </i></span> {{$tecnico->email}}</td>
+
+                                    </tr>
+                                </tr>
+                            @endif
+                        @endforeach
                     </tbody>
                 </table>
                 <!-- END Products in Cart Content -->

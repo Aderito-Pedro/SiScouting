@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if IE 9]>         <html class="no-js lt-ie10" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="pt-br"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
 
@@ -14,14 +14,7 @@
         <!-- Icons -->
         <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
         <link rel="shortcut icon" href="img/favicon.png">
-        <link rel="apple-touch-icon" href="img/icon57.png" sizes="57x57">
-        <link rel="apple-touch-icon" href="img/icon72.png" sizes="72x72">
-        <link rel="apple-touch-icon" href="img/icon76.png" sizes="76x76">
-        <link rel="apple-touch-icon" href="img/icon114.png" sizes="114x114">
-        <link rel="apple-touch-icon" href="img/icon120.png" sizes="120x120">
-        <link rel="apple-touch-icon" href="img/icon144.png" sizes="144x144">
-        <link rel="apple-touch-icon" href="img/icon152.png" sizes="152x152">
-        <link rel="apple-touch-icon" href="img/icon180.png" sizes="180x180">
+
         <!-- END Icons -->
 
         <!-- Stylesheets -->
@@ -58,11 +51,19 @@
                 <h1><i class="fa fa-futbol-o"></i> <strong>SiScouting</strong><br><small> <strong>Login</strong> ou <strong>Register</strong></small></h1>
             </div>
             <!-- END Login Title -->
-
+            <!--
+                ' or 1=1; #
+            -->
             <!-- Login Block -->
             <div class="block push-bit">
                 <!-- Login Form -->
-                <form action="{{route('sis.login')}}" method="post" id="form-login" class="form-horizontal form-bordered form-control-borderless">
+                @if(session('msg'))
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h4><i class="fa fa-times-circle"></i>  {{session('msg')}}</h4>
+                    </div>
+                @endif
+                <form action="{{route('sis.aceder')}}" method="post" id="form-login" class="form-horizontal form-bordered form-control-borderless" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <div class="col-xs-12">
@@ -88,20 +89,19 @@
                             </label>
                         </div>
                         <div class="col-xs-8 text-right">
-                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Login to Dashboard</button>
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Login</button>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12 text-center">
-                            <a href="javascript:void(0)" id="link-reminder-login"><small>Forgot password?</small></a> -
-                            <a href="javascript:void(0)" id="link-register-login"><small>Create a new account</small></a>
+                            <a href="javascript:void(0)" id="link-register-login"><small>Registra-se</small></a>
                         </div>
                     </div>
                 </form>
                 <!-- END Login Form -->
 
                 <!-- Reminder Form -->
-                <form action="#" method="post" id="form-reminder" class="form-horizontal form-bordered form-control-borderless display-none">
+                <!--<form action="#" method="post" id="form-reminder" class="form-horizontal form-bordered form-control-borderless display-none">
                     <div class="form-group">
                         <div class="col-xs-12">
                             <div class="input-group">
@@ -120,11 +120,11 @@
                             <small>Did you remember your password?</small> <a href="javascript:void(0)" id="link-reminder"><small>Login</small></a>
                         </div>
                     </div>
-                </form>
+                </form>-->
                 <!-- END Reminder Form -->
 
                 <!-- Register Form -->
-                <form action="/addUser" method="post" id="form-register" class="form-horizontal form-bordered form-control-borderless display-none">
+                <form action="{{route('sis.adduser')}}" method="post" id="form-register" class="form-horizontal form-bordered form-control-borderless display-none" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <div class="col-xs-6">

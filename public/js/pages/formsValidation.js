@@ -74,7 +74,7 @@ var FormsValidation = function() {
                 },
                 messages: {
                     val_username: {
-                        required: 'Please enter a username',
+                        required: 'Por favor Digite o Nome...',
                         minlength: 'Your username must consist of at least 3 characters'
                     },
                     val_email: 'Please enter a valid email address',
@@ -87,8 +87,15 @@ var FormsValidation = function() {
                         minlength: 'Your password must be at least 5 characters long',
                         equalTo: 'Please enter the same password as above'
                     },
+                    val_apelido:'Por favor digite o Apelido...',
+                    val_identificacao:'Por favor digite o Nº de Identificação...',
+
                     val_bio: 'Don\'t be shy, share something with us :-)',
                     val_categoria: 'Por favor selecione uma Categoria',
+                    val_competicao:'Por favor selecione uma Competição',
+                    val_pais:'POr favor selecione um Pais',
+                    pe:'Por favor selecione o Pé Dominante',
+                    val_posicao:'Por favor selecione a Posição do Jogador',
                     val_website: 'Please enter your website!',
                     val_digits: 'Please enter only digits!',
                     val_number: 'Please enter a number!',
@@ -104,10 +111,12 @@ var FormsValidation = function() {
             $('#masked_date').mask('99/99/9999');
             $('#masked_date2').mask('99-99-9999');
             $('#masked_phone').mask('(+244) 999-999-999');
+            $('#masked_phone1').mask('(+244) 999-999-999');
             $('#masked_phone_ext').mask('(999) 999-9999? x99999');
             $('#masked_taxid').mask('99-9999999');
             $('#masked_ssn').mask('999-99-9999');
             $('#masked_pkey').mask('a*-999-a999');
+            $('#masked_bi').mask('999999999aa999');
         }
     };
 }();

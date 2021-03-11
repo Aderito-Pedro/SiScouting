@@ -70,17 +70,7 @@
 
     <div class="content-header">
         <div class="header-section">
-            @if($errors->all())
-        @foreach($errors->all() as $error)
-        <div class="alert alert-danger alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h4><i class="fa fa-times-circle"></i> {{$error}} </h4>
-        </div>
-        @endforeach
-    @endif
-            <h1>
-                <i class="fa fa-magic"></i>Form Wizard<br><small>Break easily your forms into steps!</small>
-            </h1>
+            <h1><i class="fa fa-shirtsinbulk"></i>Inserir Dados do Clube</h1>
         </div>
     </div>
 
@@ -88,7 +78,14 @@
     <!-- END Wizard Header -->
 
     <!-- Progress Bar Wizard Block -->
-
+    @if($errors->all())
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            @foreach($errors->all() as $error)
+                <h4><i class="fa fa-times-circle"></i> {{$error}} </h4>
+            @endforeach
+        </div>
+    @endif
     <!-- Wizards Row -->
     <div class="row">
         <div class="col">
@@ -101,7 +98,7 @@
                 <!-- END Wizard with Validation Title -->
 
                 <!-- Wizard with Validation Content -->
-                <form id="advanced-wizard" action="/insertClube" method="post" class="form-horizontal form-bordered">
+                <form id="advanced-wizard" action="{{route('gest.insertClube')}}" method="post" class="form-horizontal form-bordered" enctype="multipart/form-data">
                     <!-- First Step -->
                     @csrf
                     <div id="advanced-first" class="step">
@@ -121,7 +118,7 @@
                             <label class="col-md-4 control-label" for="val_username">Nome do Clube <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" id="val_username" name="clube" class="form-control" placeholder="Nome do Clube.." required>
+                                    <input type="text" id="val_username" name="clube" class="form-control" placeholder="Nome do Clube.." value="{{old('clube')}}" required>
                                     <span class="input-group-addon"><i class="fa fa-shirtsinbulk"></i></span>
                                 </div>
                             </div>
@@ -130,7 +127,7 @@
                             <label class="col-md-4 control-label" for="val_email">Email <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="email" id="val_email" name="email" class="form-control" placeholder="test@example.com" required>
+                                    <input type="email" id="val_email" name="email" class="form-control" placeholder="test@example.com" value="{{old('email')}}" required>
                                     <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
                                 </div>
                             </div>
@@ -139,7 +136,7 @@
                             <label class="col-md-4 control-label" for="val_username">Fundador do Clube <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" id="val_username" name="fundador" class="form-control" placeholder="Nome do Fundador.." required>
+                                    <input type="text" id="val_username" name="fundador" class="form-control" placeholder="Nome do Fundador.." value="{{old('fundador')}}" required>
                                     <span class="input-group-addon"><i class="gi gi-user"></i></span>
                                 </div>
                             </div>
@@ -156,20 +153,29 @@
                             <label class="col-md-4 control-label" for="example-datepicker">Data de Fundação <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="date" id="example-datepicker3" name="data_fundacao"  placeholder="dd-mm-yyyy" required>
-
+                                   <input type="text" id="example-datepicker4" name="data_nascimento" class="form-control input-datepicker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd" value="{{old('data_nascimento')}}" required>
+                                   <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="val_skill">Localização <span class="text-danger">*</span></label>
-                            <div class="col-md-6">
-                                <label for="val_skill">Provincia</label>
-                                <select id="val_provincia" name="val_provincia" class="form-control">
-                                </select>
-                                <label for="val_skill">Municipio</label>
-                                <select id="val_municipio" name="val_municipio" class="form-control">
-                                </select>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="val_skill">Pais</label>
+                                    <select id="val_pais" name="val_pais" class="form-control" required>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="val_skill">Provincia</label>
+                                    <select id="val_provincia" name="val_provincia" class="form-control" required>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="val_skill">Municipio</label>
+                                    <select id="val_municipio" name="val_municipio" class="form-control" required>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -193,17 +199,25 @@
                             <label class="col-md-4 control-label" for="val_username">Escalão <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" id="val_username" name="escalao" class="form-control" placeholder="Escalão.." required>
+                                    <input type="text" id="val_username" name="escalao" class="form-control" placeholder="Escalão.." value="{{old('escalao')}}" required>
                                     <span class="input-group-addon"><i class="fa fa-circle-o-notch"></i></span>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="masked_phone">Contacto</label>
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <input type="text" id="masked_phone" name="telefone" class="form-control" placeholder="(+244) 999-999-999" required>
-                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input type="text" id="masked_phone" name="telefone1" class="form-control" placeholder="(+244) 999-999-999" value="{{old('telefone1')}}" required>
+                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-group">
+                                        <input type="text" id="masked_phone1" name="telefone2" class="form-control" placeholder="(+244) 999-999-999" value="{{old('telefone2')}}">
+                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -211,7 +225,7 @@
                             <label class="col-md-4 control-label" for="val_username">Estadio <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" id="val_username" name="estadio" class="form-control" placeholder="Estadio.." required>
+                                    <input type="text" id="val_username" name="estadio" class="form-control" placeholder="Estadio.." value="{{old('estadio')}}" required>
                                     <span class="input-group-addon"><i class="fa fa-circle-o-notch"></i></span>
                                 </div>
                             </div>
@@ -219,7 +233,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="example-advanced-bio">Descrição</label>
                             <div class="col-md-8">
-                                <textarea id="example-advanced-bio" name="descricao" rows="6" class="form-control" placeholder="Descrição bibligrafica do Clube..."></textarea>
+                                <textarea id="example-advanced-bio" name="descricao" rows="6" class="form-control" placeholder="Descrição bibligrafica do Clube..." value="{{old('descricao')}}"></textarea>
                             </div>
                         </div>
 
@@ -277,16 +291,16 @@
 
     $(function (){
         $.ajax({
-            url: '{{route('sis.getProvincia')}}',
+            url: '{{route('sis.getPais')}}',
             type: 'get',
             beforeSend: function (){
-                $("#val_provincia").html("carregando...");
+                $("#val_pais").html("carregando...");
             },
             success: function (data){
-                $("#val_provincia").html(data);
+                $("#val_pais").html(data);
             },
             error: function (data){
-                $("#val_provincia").html("Erro ao Carregar");
+                $("#val_pais").html("Erro ao Carregar");
             }
 
         });
@@ -294,6 +308,23 @@
     });
 
 
+    $('#val_pais').on('change',function (){
+        var idEstado = $("#val_pais").val();
+        console.log(idEstado);
+        $.ajax({
+            url: '/buscaProvincia/'+idEstado,
+            type: 'get',
+            beforeSend: function (){
+                $("#val_provincia").html("carregando");
+            },
+            success: function (data){
+                $("#val_provincia").html(data);
+            },
+            error: function (data){
+                $("#val_provincia").html("Erro ao Carregar");
+            }
+        });
+    });
     $('#val_provincia').on('change',function (){
         var idEstado = $("#val_provincia").val();
         console.log(idEstado);
@@ -311,7 +342,6 @@
             }
         });
     });
-
     </script>
 <script>$(function(){ FormsWizard.init(); });</script>
 

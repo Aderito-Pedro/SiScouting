@@ -91,7 +91,7 @@ var FormsWizard = function() {
                     },
                     messages: {
                         val_username: {
-                            required: 'Please enter a username',
+                            required: 'Por Favor digite o Nome Completo...',
                             minlength: 'Your username must consist of at least 2 characters'
                         },
                         val_password: {
@@ -104,13 +104,25 @@ var FormsWizard = function() {
                             equalTo: 'Please enter the same password as above'
                         },
                         val_email: 'Please enter a valid email address',
-                        val_terms: 'Please accept the terms to continue'
+                        val_terms: 'Please accept the terms to continue',
+                        val_apelido:'Por favor digite o Apelido...',
+                        val_identificacao:'Por favor digite o Nº de Identificação...',
+                        val_bio: 'Don\'t be shy, share something with us :-)',
+                        val_categoria: 'Por favor selecione uma Categoria',
+                        val_competicao:'Por favor selecione uma Competição',
+                        val_pais:'Por favor selecione um Pais',
+                        pe:'Por favor selecione o Pé Dominante',
+                        val_posicao:'Por favor selecione a Posição do Jogador',
+                        val_website: 'Please enter your website!',
+                        val_digits: 'Please enter only digits!',
+                        val_number: 'Please enter a number!',
+                        val_range: 'Please enter a number between 1 and 1000!',
+                        val_terms: 'You must agree to the service terms!'
                     }
                 },
                 inDuration: 0,
                 outDuration: 0
             });
-
             /* Initialize Clickable Wizard */
             var clickableWizard = $('#clickable-wizard');
 

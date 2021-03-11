@@ -10,4 +10,6 @@ class Clube extends Model
     use HasFactory;
 
     protected $dates = ['data_fundacao'];
+
+    protected $primaryKey = 'id';
 }
