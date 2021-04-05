@@ -91,15 +91,12 @@
                 <!-- Orders Content -->
                 <table class="table table-bordered table-striped table-vcenter">
                     <tbody>
-                        <tr>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                        </tr>
+                        @foreach($competicoes as $competicao)
+                            <tr>
+                                <td style="width: 50%;"><strong>{{$competicao->descricao}} </strong></td>
+                                <td class="text-right">{{$competicao->objectivo}}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
 
                 </table>
@@ -288,41 +285,6 @@
                 <!-- END Products in Cart Content -->
             </div>
             <!-- Referred Members Block -->
-            <div class="block">
-                <!-- Referred Members Title -->
-                <div class="block-title">
-                    <h2><i class="fa fa-group"></i> <strong>Referred</strong> Members (2)</h2>
-                </div>
-                <!-- END Referred Members Title -->
-
-                <!-- Referred Members Content -->
-                <div class="row">
-                    <div class="col-lg-6">
-                        <a href="javascript:void(0)" class="widget widget-hover-effect2 themed-background-muted-light">
-                            <div class="widget-simple">
-                                <img src="img/placeholders/avatars/avatar12.jpg" alt="avatar" class="widget-image img-circle pull-left">
-                                <h4 class="widget-content text-right">
-                                    <strong>Julia Warren</strong>
-                                    <small>Orders Value: <strong>$280,00</strong></small>
-                                </h4>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6">
-                        <a href="javascript:void(0)" class="widget widget-hover-effect2 themed-background-muted-light">
-                            <div class="widget-simple">
-                                <img src="img/placeholders/avatars/avatar2.jpg" alt="avatar" class="widget-image img-circle pull-left">
-                                <h4 class="widget-content text-right">
-                                    <strong>Kyle Ross</strong>
-                                    <small>Orders Value: <strong>$780,00</strong></small>
-                                </h4>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <!-- END Referred Members Content -->
-            </div>
-            <!-- END Referred Members Block -->
 
             <!-- Private Notes Block -->
 

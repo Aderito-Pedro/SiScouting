@@ -192,6 +192,11 @@ class GestorClube extends Controller{
                     ->select('responsavels.*', DB::raw('rcategorias.descricao as categoria'))
                     ->get();
                 $equipa = Equipa::where([['id_clube',$club->id]])->first();
+                $competicao = DB::table('competicaos')
+                    ->join('objectivos','competicaos.id','=','objectivos.id_competicao')
+                    ->where([['objectivos.id_equipa',$equipa->id]])
+                    ->select('competicaos.*', DB::raw('objectivos.objectivo as objectivo'))
+                    ->get();
                 $tecnicos = DB::table('equipa_tecnicas')
                     ->where([['equipa_tecnicas.id_equipa',$equipa->id]])
                     ->join('categorias','equipa_tecnicas.id_categoria','=','categorias.id')
@@ -203,6 +208,7 @@ class GestorClube extends Controller{
                     'endereco'=>$endereco,
                     'responsavels' => $responsavel,
                     'tecnicos' => $tecnicos,
+                    'competicoes' => $competicao,
                 ];
                 return view('gestor/listClube',$dadosClube);
             }else{
