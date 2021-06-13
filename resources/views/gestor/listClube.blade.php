@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('admin', $user->name)
+@section('tipo', $user->tipo)
 @section('conteudo')
 
 

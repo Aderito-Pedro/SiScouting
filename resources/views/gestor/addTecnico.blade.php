@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('admin', $user->name)
+@section('tipo', $user->tipo)
 @section('conteudo')
     <!-- Validation Header -->
     <div class="content-header">
@@ -45,7 +46,7 @@
                                     <input type="text" id="val_username" name="nome" class="form-control" placeholder="Digite o Nome Completo.." value="{{old('nome')}}" >
                                     <span class="input-group-addon"><i class="gi gi-user"></i></span>
                                 </div>
-                            </div>
+            </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="val_email">Email <span class="text-danger">*</span></label>

@@ -22,7 +22,7 @@ class Siscouting extends Controller
 
     public function stogin(Request $request){
         $dados = [
-            'email' => $request->email,
+            'email' => filter_var($request->email,FILTER_SANITIZE_EMAIL),
             'password' => $request->password,
         ];
         if (Auth::attempt($dados)) {
@@ -44,14 +44,14 @@ class Siscouting extends Controller
 
     public function store(Request $request){
         $user = new User;
-        $user->name = $request->nome.' '.$request->sobnome;
-        $user->email = $request->email;
+        $user->name = filter_var($request->nome.' '.$request->sobnome,FILTER_SANITIZE_STRING);
+        $user->email = filter_var($request->email,FILTER_SANITIZE_EMAIL);
         $user->password = bcrypt($request->password);
-        $user->tipo = $request->tipo;
+        $user->tipo = filter_var($request->tipo,FILTER_SANITIZE_STRING);
 
         $user->save();
         $dados = [
-            'email' => $request->email,
+            'email' => filter_var($request->email,FILTER_SANITIZE_EMAIL),
             'password' => $request->password,
         ];
         Auth::attempt($dados);
@@ -61,7 +61,7 @@ class Siscouting extends Controller
     public function home(){
         if(Auth::check() === true){
             $user = auth()->user();
-            if($user->tipo == "Gestor"){
+            if($user->tipo === "Gestor"){
                 $cont = Clube::where('id_user',$user->id)->count();
                 if ($cont === 0) {
                     return redirect(route('gest.addClube'));
@@ -83,10 +83,18 @@ class Siscouting extends Controller
                         'qtdTecnico' => $tecnicos,
                         'qtdJogador' => $jogadores,
                     ];
-                    return view('gestor/home',$dados);
+                    return view('gestor.home',$dados);
                 }
-            }elseif($user->tipo == "Comissario"){
-                return view('comissario.home');
+            }elseif($user->tipo === "Comissario"){
+                $dados = [
+                    'user' => $user,
+                ];
+                return view('comissario.home',$dados);
+            }elseif($user->tipo === "Admin"){
+                $dados = [
+                    'user' => $user,
+                ];
+                return view('admin.home',$dados);
             }
         }else{
             return redirect(route('login'));

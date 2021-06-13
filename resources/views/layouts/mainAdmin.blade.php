@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="sidebar-user-name">@yield('admin')<br><h6>@yield('tipo')</h6></div>
                                 <div class="sidebar-user-links">
-                                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Profile"><i class="gi gi-user"></i></a>
+                                    <a href="{{route('admin.perfil')}}" data-toggle="tooltip" data-placement="bottom" title="Profile"><i class="gi gi-user"></i></a>
                                     <a href="{{route('sis.logout')}}" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="gi gi-exit"></i></a>
                                 </div>
                             </div>
@@ -121,90 +121,22 @@
                                     <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-certificate sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Clube</span></a>
                                     <ul>
                                         <li>
-                                            <a href="{{route('gest.verClube')}}">Ver Dados do Clube</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('gest.addResponsavel')}}">Registar Responsiveis do Clube</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('gest.listResponsavel')}}">Listar Responsiveis do clube</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('gest.competicao')}}">Inscrever-se em Competição</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Navigation &amp; More</a>
+                                            <a href="{{route('admin.verClubes')}}">Ver Clubes</a>
                                         </li>
 
-                                    </ul>
-                                </li>
-                                <!--<li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-show_big_thumbnails sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide"></span></a>
-                                    <ul>
-                                        <li>
-                                            <a href="page_layout_static_no_sidebars.html">No Sidebars</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_static_both_partial.html">Both Sidebars Partial</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_static_animated.html">Animated Sidebar Transitions</a>
-                                        </li>
-                                    </ul>
-                                </li>-->
-                                <li class="sidebar-header">
-                                    <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a></span>
-                                    <span class="sidebar-header-title">Equipa Técnico</span>
-                                </li>
-                                <li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-users sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Equipa</span></a>
-                                    <ul>
-                                        <li>
-                                            <a href="{{route('gest.addTecnico')}}">Novo Técnico</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('gest.listTecnico')}}">Listar Equipe Técnica</a>
-                                        </li>
 
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-street-view sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Jogadores</span></a>
+                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-cubes sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Jogos</span></a>
                                     <ul>
                                         <li>
-                                            <a href="{{route('jogador.addJogador')}}">Novo Jogador</a>
+                                            <a href="{{route('admin.novoJogo')}}">Gerar Calendario</a>
                                         </li>
-                                        <li>
-                                            <a href="{{route('jogador.listJogador')}}">Listar Jogadores</a>
-                                        </li>
+                                    </ul>
+                                </li>
 
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-bar-chart-o sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Estatisticas </span></a>
-                                    <ul>
-                                        <li>
-                                            <a href="#">General</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Responsive</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Datatables</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-cup sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Trofeus</span></a>
-                                    <ul>
-                                        <li>
-                                            <a href="#">Font Awesome</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Glyphicons Pro</a>
-                                        </li>
-                                    </ul>
-                                </li>
+
 
                             </ul>
                             <!-- END Sidebar Navigation -->
@@ -273,7 +205,7 @@
                                 <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
 
                                     <li>
-                                        <a href="page_ready_user_profile.html">
+                                        <a href="{{route('admin.perfil')}}">
                                             <i class="fa fa-user fa-fw pull-right"></i>
                                             Profile
                                         </a>
@@ -314,6 +246,7 @@
 
                     </footer>
                     <!-- END Footer -->
+                </div>
                 </div>
                 <!-- END Main Container -->
             </div>

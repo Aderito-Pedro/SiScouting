@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.mainAdmin')
 
 @section('admin', $user->name)
 @section('tipo', $user->tipo)
@@ -7,7 +7,7 @@
 <div class="content-header">
         <div class="header-section">
             <h1>
-                <i class="fa fa-users"></i>Listagem dos Técnicos da Equipe<br><small>...</small>
+                <i class="fa fa-shirtsinbulk"></i>Listagem dos Clube<br><small>...</small>
             </h1>
         </div>
     </div>
@@ -30,34 +30,31 @@
         </div>
 
         <div class="table-responsive">
-            <div class="col-md-2" style="margin-left: 82%; margin-right: auto;">
-                <a href="{{route('gest.addTecnico')}}">
-                    <button type="button" class="btn btn-block btn-primary"><i class="fa fa-plus"></i> Novo</button>
-                </a>
-            </div>
-            @if (count($tecnicos)>0)
+            @if (count($clubes)>0)
                 <table class="table table-vcenter table-striped">
                     <thead>
                         <tr>
-                            <th>Nome </th>
+                            <th>Emblema</th>
+                            <th>Clube </th>
                             <th>Email</th>
-                            <th>Data de Nascimento</th>
-                            <th>Contacto</th>
-                            <th>Categoria</th>
+                            <th>Escalão</th>
                             <th style="width: 150px;" class="text-center">Acção</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($tecnicos as $tecnico)
+                        @foreach($clubes as $clube)
                             <tr>
-                                <td>{{$tecnico->nome}}</td>
-                                <td>{{$tecnico->email}}</td>
-                                <td>{{$tecnico->data_nascimento}}</td>
-                                <td>{{$tecnico->contacto1}}</td>
-                                <td>{{$tecnico->categoria}}</td>
+                                <td class="text-center">
+                                    <div class="user-avatar">
+                                        <img src="img/siscout/clube/{{{$clube->emblema != NULL ? $clube->emblema : "SiscOUTING_CLUBE.png"}}}" alt="avatar" class="img-circle" style="height: 55px;width: 55px;">
+                                    </div>
+                                </td>
+                                <td>{{{$clube->clube}}}</td>
+                                <td>{{{$clube->email}}}</td>
+                                <td>{{{$clube->escalao}}}</td>
                                 <td class="text-center">
                                     <div class="btn-group btn-group-xs">
-                                        <a href="{{route('gest.editTecnico',$tecnico->id)}}" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                                        <a href="{{route('admin.clube',$clube->id)}}" data-toggle="tooltip" title="Ver Clube" class="btn btn-default"><i class="fa fa-user"></i></a>
                                         <a href="javascript:void(0)" data-toggle="tooltip" title="Delete" class="btn btn-danger"><i class="fa fa-times"></i></a>
                                     </div>
                                 </td>
@@ -66,10 +63,11 @@
                     </tbody>
                 </table>
             @else
-                <p class="text-center">Ainda não foi registado nenhum membro da Equipe Tecnica...</p>
+                <p class="text-center">Ainda não foi registado nenhum Clube...</p>
             @endif
         </div>
     </div>
+</div>
 
 
     <!-- Load and execute javascript code used only in this page -->

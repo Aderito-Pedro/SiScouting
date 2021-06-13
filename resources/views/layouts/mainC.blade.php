@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if IE 9]>         <html class="no-js lt-ie10" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="pt-br"> <!--<![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
 
@@ -14,8 +14,7 @@
         <!-- Icons -->
         <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
         <link rel="shortcut icon" href="img/favicon.png">
-
-        <!-- END Icons -->
+         <!-- END Icons -->
 
         <!-- Stylesheets -->
         <!-- Bootstrap is included in its original form, unaltered -->
@@ -36,6 +35,11 @@
         <!-- Modernizr (browser feature detection library) -->
         <script src="js/vendor/modernizr.min.js"></script>
         <script src="js/jquery-3.4.1.js"></script>
+        <script>
+            $(document).ready(function(){
+                    $('#selectCompeticao').children('div').hide();
+            });
+        </script>
     </head>
     <body>
         <!-- Page Wrapper -->
@@ -48,10 +52,6 @@
         <div id="page-wrapper">
             <!-- Preloader -->
             <!-- Preloader functionality (initialized in js/app.js) - pageLoading() -->
-            <!-- Used only if page preloader is enabled from inc/config (PHP version) or the class 'page-loading' is added in #page-wrapper element (HTML version) -->
-
-            <!-- END Preloader -->
-
             <!-- Page Container -->
             <!-- In the PHP version you can set the following options from inc/config file -->
             <!--
@@ -83,7 +83,13 @@
 
                 'enable-cookies'                                enables cookies for remembering active color theme when changed from the sidebar links
             -->
-            <div id="page-container" class="sidebar-partial sidebar-visible-lg sidebar-no-animations">
+            <div id="page-container" class="sidebar-mini sidebar-visible-lg-mini sidebar-no-animations">
+                <!-- Alternative Sidebar -->
+                <div id="sidebar-alt">
+                    <!-- Wrapper for scrolling functionality -->
+                    <!-- END Wrapper for scrolling functionality -->
+                </div>
+                <!-- END Alternative Sidebar -->
 
                 <!-- Main Sidebar -->
                 <div id="sidebar">
@@ -94,6 +100,7 @@
                             <!-- Brand -->
                             <a href="{{route('sis.home')}}" class="sidebar-brand">
                                 <i class="fa fa-futbol-o"></i><span class="sidebar-nav-mini-hide"><strong>SiS</strong>couting</span>
+
                             </a>
                             <!-- END Brand -->
 
@@ -104,7 +111,7 @@
                                         <img src="img/placeholders/avatars/avatar2.jpg" alt="avatar">
                                     </a>
                                 </div>
-                                <div class="sidebar-user-name">@yield('admin')<br><h6>@yield('tipo')</h6></div>
+                                <div class="sidebar-user-name"><strong>@yield('admin')</strong><br><h6>@yield('tipo')</h6></div>
                                 <div class="sidebar-user-links">
                                     <a href="#" data-toggle="tooltip" data-placement="bottom" title="Profile"><i class="gi gi-user"></i></a>
                                     <a href="{{route('sis.logout')}}" data-toggle="tooltip" data-placement="bottom" title="Logout"><i class="gi gi-exit"></i></a>
@@ -112,46 +119,27 @@
                             </div>
                             <!-- END User Info -->
 
+                            <!-- Theme Colors -->
+                            <!-- Change Color Theme functionality can be found in js/app.js - templateOptions() -->
+
                             <!-- Sidebar Navigation -->
                             <ul class="sidebar-nav">
                                 <li>
-                                    <a href="{{route('sis.home')}}" class=" active"><i class="fa fa-home sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Pagina Principal</span></a>
+                                    <a href="{{route('sis.home')}}" data-toggle="tooltip" data-placement="right" title="Pagina Principal"><i class="fa fa-home sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide" >Pagina Principal</span></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-certificate sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Clube</span></a>
+                                    <a href="#" class="sidebar-nav-menu" data-toggle="tooltip" data-placement="right" title="Jogos"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-cubes sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Jogos</span></a>
                                     <ul>
                                         <li>
-                                            <a href="{{route('gest.verClube')}}">Ver Dados do Clube</a>
+                                            <a href="#">Registar Jogo</a>
                                         </li>
                                         <li>
-                                            <a href="{{route('gest.addResponsavel')}}">Registar Responsiveis do Clube</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('gest.listResponsavel')}}">Listar Responsiveis do clube</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{route('gest.competicao')}}">Inscrever-se em Competição</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Navigation &amp; More</a>
+                                            <a href="#">Listar Jogos</a>
                                         </li>
 
                                     </ul>
                                 </li>
-                                <!--<li>
-                                    <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-show_big_thumbnails sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide"></span></a>
-                                    <ul>
-                                        <li>
-                                            <a href="page_layout_static_no_sidebars.html">No Sidebars</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_static_both_partial.html">Both Sidebars Partial</a>
-                                        </li>
-                                        <li>
-                                            <a href="page_layout_static_animated.html">Animated Sidebar Transitions</a>
-                                        </li>
-                                    </ul>
-                                </li>-->
+
                                 <li class="sidebar-header">
                                     <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a></span>
                                     <span class="sidebar-header-title">Equipa Técnico</span>
@@ -210,7 +198,7 @@
                             <!-- END Sidebar Navigation -->
 
                             <!-- Sidebar Notifications -->
-
+                            <!-- END Sidebar Notifications -->
                         </div>
                         <!-- END Sidebar Content -->
                     </div>
@@ -247,23 +235,23 @@
 
                             <!-- Template Options -->
                             <!-- Change Options functionality can be found in js/app.js - templateOptions() -->
-
                             <!-- END Template Options -->
                         </ul>
                         <!-- END Left Header Navigation -->
 
                         <!-- Search Form -->
-                        <form action="#" method="post" class="navbar-form-custom">
+                        <form action="page_ready_search_results.html" method="post" class="navbar-form-custom">
                             <div class="form-group">
-                                <input type="text" id="top-search" name="top-search" class="form-control" placeholder="Pesquisa...">
+                                <input type="text" id="top-search" name="top-search" class="form-control" placeholder="Search..">
                             </div>
                         </form>
                         <!-- END Search Form -->
 
                         <!-- Right Header Navigation -->
                         <ul class="nav navbar-nav-custom pull-right">
+                            <!-- Alternative Sidebar Toggle Button -->
 
-
+                            <!-- END Alternative Sidebar Toggle Button -->
 
                             <!-- User Dropdown -->
                             <li class="dropdown">
@@ -277,7 +265,6 @@
                                             <i class="fa fa-user fa-fw pull-right"></i>
                                             Profile
                                         </a>
-                                        <!-- Opens the user settings modal that can be found at the bottom of each page (page_footer.html in PHP version) -->
 
                                     </li>
                                     <li class="divider"></li>
@@ -295,36 +282,25 @@
 
                     <!-- Page content -->
                     <div id="page-content">
-                        <!-- Dashboard Header -->
-                        <!-- For an image header add the class 'content-header-media' and an image as in the following example -->
 
-                        <!-- END Dashboard Header -->
-                            @yield('conteudo')
+                        @yield('conteudo')
 
-                        <!-- Mini Top Stats Row -->
-                        <!-- END Widgets Row -->
                     </div>
-                    <!-- END Page Content -->
-                    <a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
-                    <!-- Footer -->
-                    <footer class="clearfix">
-                        <div class="pull-right">
-                            Crafted with <i class="fa fa-heart text-danger"></i> by <a href="#" target="_blank">SiScouting</a>
-                        </div>
-
-                    </footer>
-                    <!-- END Footer -->
-                </div>
-                <!-- END Main Container -->
-            </div>
             <!-- END Page Container -->
+            <a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
+            <footer class="clearfix">
+                <div class="pull-right">
+                    Crafted with <i class="fa fa-heart text-danger"></i> by <a href="#" target="_blank">SiScouting</a>
+                </div>
+            </footer>
         </div>
-        <!-- END Page Wrapper -->
-
-        <!-- END User Settings -->
+        <!-- END Main Container -->
+    </div>
+    <!-- END Page Container -->
+</div>
+        <!-- Scroll to top link, initialized in js/app.js - scrollToTop() -->
 
         <!-- jQuery, Bootstrap.js, jQuery plugins and Custom JS code -->
-
         <script src="js/vendor/jquery.min.js"></script>
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/plugins.js"></script>
@@ -334,7 +310,5 @@
 
         <script src="js/pages/tablesDatatables.js"></script>
         <script>$(function(){ TablesDatatables.init(); });</script>
-
     </body>
 </html>
-<a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
